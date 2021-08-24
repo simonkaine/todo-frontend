@@ -5,20 +5,31 @@ import Home from './home'
 import Auth from './auth.js'
 
 class App extends Component {
-  state = {  }
+  state = { token: localStorage.getItem('TOKEN') }
+
+  setToken = (theTokenValue) => {
+    this.setState({ token: theTokenValue });
+  }
+
   render() { 
     return ( 
       <BrowserRouter>
 
         <Header />
         <Switch>
+
             <Route exact path="/" component={Home}></Route>
+
             <Route path="/login" >
-              <Auth type="login"/>
+              <Auth type="login" setToken={this.setToken}/>
             </Route>
-            <Route path="/signup" component={Auth}></Route>
+
+            <Route path="/signup" >
+              <Auth type="signup" setToken={this.setToken}/>
+            </Route>
+
         </Switch>
-        
+
       </BrowserRouter>
      );
   }
