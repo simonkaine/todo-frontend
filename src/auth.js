@@ -14,10 +14,10 @@ class Auth extends Component {
                 <form>
                     <fieldset>
                     <label>Email: </label>
-                    <input type="text"></input>
+                    <input type="text" onChange={(e) => this.setState({ email: e.target.value})}></input>
 
                     <label> Password: </label>
-                    <input type="text"></input>
+                    <input type="text" onChange={(e) => this.setState({ password: e.target.value})}></input>
 
                     <button>{this.getAccountType()}</button>
                     </fieldset>
