@@ -1,4 +1,5 @@
-const URL = 'http://localhost:7890';
+// const URL = 'http://localhost:7890';
+const URL = 'https://fathomless-waters-73143.herokuapp.com'
 
 export async function getToken(signInInfo, type) {
 
