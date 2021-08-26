@@ -23,7 +23,7 @@ class Auth extends Component {
         );
         console.log(token)
         this.props.setToken(token);
-        // this.props.history.push('/todos');
+        this.props.history.push('/todos');
     };
 
     render() { 
