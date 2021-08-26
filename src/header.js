@@ -7,9 +7,10 @@ class Header extends Component {
         return ( 
             <header>
                 <div className="consistent-header">
-                <h1>Sign In || Sign Up</h1>
+                <h1>TODO's Lab</h1>
                 </div>
                 <div className="links-box">
+
                     <NavLink exact to="/" className="home-link">Home</NavLink>
                     <NavLink to="/login" className="sign-in-link">Login</NavLink>
                     <NavLink to="/signup" className="sign-up-link">Sign Up</NavLink>
