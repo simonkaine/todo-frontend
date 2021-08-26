@@ -21,7 +21,7 @@ class App extends Component {
             <Route exact path="/" component={Home}></Route>
 
             <Route path="/login" >
-              <Auth type="login" setToken={this.setToken}/>
+              <Auth type="signin" setToken={this.setToken}/>
             </Route>
 
             <Route path="/signup" >
