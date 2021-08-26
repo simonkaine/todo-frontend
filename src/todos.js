@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchToDoData, createToDoData } from './fetch-utils';
+import { fetchToDoData, createToDoData, updateToDoData } from './fetch-utils';
 
 class Todos extends Component {
     state = { todos: [], newCreatedToDo: '' } // add loading state too later
@@ -24,14 +24,21 @@ class Todos extends Component {
         this.fetchTodos();
     }
 
+    handleCompleted = async (todo) => {
+        todo.completed = !todo.completed;
+        await updateToDoData(this.props.token, todo);
+        this.fetchTodos();
+    };
+
     render() { 
         return ( 
             <>
             <h1>My toDo List!</h1>
-            {this.state.todos.map(todo => (
+            {this.state.todos.map((todo) => (
     
                 <div className="todo-list" key={todo.id}>   
-                    <input type="checkbox" checked={todo.completed}></input>
+                    <input type="checkbox" checked={todo.completed}
+                    onChange={() => this.handleCompleted(todo)}></input>
                     <label>{todo.todo}</label>
                 </div>
 
@@ -41,9 +48,8 @@ class Todos extends Component {
 
                 <input type="text" value={this.state.newCreatedToDo} 
                 onChange={(e) => this.setState({ newCreatedToDo: e.target.value})} />
-            
 
-                <button>Create New ToDo</button>
+                <button>Add New ToDo</button>
 
             </form>
 
